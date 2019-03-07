@@ -1,0 +1,111 @@
+//PROBLEM 1
+
+#include <iostream>
+#include <iomanip>
+#include <conio.h>
+#include <fstream>
+#include <float.h>
+
+using namespace std;
+
+int main()
+{
+    ifstream inFile;
+    
+	int BoxTicket, SidelineTicket, PremiumTicket, GenAdmissionTicket;
+
+    int NumBoxTicketSold, NumSidelineTicketSold, NumPremiumTicketSold, NumGenAdmissionTicketSold;
+
+    int AmtBoxTicketSold, AmtSidelineTicketSold, AmtPremiumTicketSold, AmtGenAdmissionTicketSold;
+
+    long totalTicketsSold, totalSaleAmount;
+  
+	cout << fixed << showpoint << setprecision(2);
+
+    inFile.open("TicketsSoldFile.txt");
+
+    inFile >> BoxTicket >> NumBoxTicketSold 
+           >> SidelineTicket >> NumSidelineTicketSold
+           >> PremiumTicket >> NumPremiumTicketSold
+           >> GenAdmissionTicket >> NumGenAdmissionTicketSold;
+
+    AmtBoxTicketSold = BoxTicket * NumBoxTicketSold;
+    AmtSidelineTicketSold = SidelineTicket * NumSidelineTicketSold;
+    AmtPremiumTicketSold = PremiumTicket * NumPremiumTicketSold;
+    AmtGenAdmissionTicketSold = GenAdmissionTicket * NumGenAdmissionTicketSold;
+
+    totalTicketsSold = NumBoxTicketSold + NumSidelineTicketSold + NumPremiumTicketSold + NumGenAdmissionTicketSold;
+	    totalSaleAmount = AmtBoxTicketSold + AmtSidelineTicketSold + AmtPremiumTicketSold + AmtGenAdmissionTicketSold;
+
+    cout << "Total number of Tickets sold is " << totalTicketsSold << endl;
+    cout << "Total Sale Amount: " << totalSaleAmount << endl;
+
+    inFile.close();
+	_getch();
+    return 0;
+}
+
+//PROBLEM2
+
+#include <iostream>
+#include <iomanip>
+#include <conio.h>
+#include <float.h>
+
+using namespace std;
+
+int main()
+{
+    double mass, density, volume;
+
+    cout << setprecision(2) << showpoint << fixed;
+    cout << "Enter value of mass in grams: ";
+    cin >> mass;
+    cout << "Enter value of density in grams per cubic centimeters: ";
+    cin >> density;
+
+    volume = mass / density;
+
+    cout << "The volume is: " << volume << endl;
+	
+	_getch();
+
+    return 0;
+}
+
+//PROBLEM3
+
+#include <iostream>
+#include <fstream>
+#include <iomanip>
+#include <iomanip>
+#include <iostream>
+#include <conio.h>
+#include <float.h>
+
+using namespace std;
+
+int main()
+{
+    double netBalance, d1, payment, interest, d2, monthlyInterestRate, averageDailyBalance;
+
+    cout << setprecision(2) << fixed << showpoint ;
+    cout << "Enter Net Balance: ";
+    cin >> netBalance;
+    cout << "Enter Payment Made: ";
+    cin >> payment;
+    cout << "Enter Number of Billing Cycle Days: ";
+    cin >> d1;
+    cout << "Enter Number of Payment Days Before Billing Cycle: ";
+    cin >> d2;
+    cout  << "Enter Interest Per Month: ";
+    cin >> monthlyInterestRate;
+
+    averageDailyBalance = (netBalance * d1 - payment * d2)/d1;
+    interest = averageDailyBalance * monthlyInterestRate;
+
+    cout << endl << "Interest is " << interest << endl;
+
+	_getch();
+    return 0;
+}
